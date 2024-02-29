@@ -5,8 +5,12 @@ import {
 
 export const CurrentUser = createParamDecorator(
     (data: never, context: ExecutionContext) => {
-        const request = context.switchToHttp().getRequest();
+        const request = context.switchToHttp();
+        console.log("request - ",request);
+        console.log("data ", data);
+        
+        
 
-        return request.CurrentUser;
+        return request.getRequest().currentUser;
     }
 )
